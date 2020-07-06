@@ -1,0 +1,50 @@
+administrator:
+  password: 0
+  username: root
+logging:
+  level:
+    com:
+      chungkui:
+        bond:
+          '*': debug
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: 80
+spring:
+  application:
+    name: auth-manager-server
+  cache:
+    type: redis
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/sunflow?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+  redis:
+    database: 0
+    host: localhost
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1s
+        min-idle: 0
+    password: ''
+    port: 6379
+    timeout: 0s
+security:
+  oauth2:
+    client:
+      clientId: auth-manager-server
+      clientSecret: 123456
+      accessTokenUri: http://localhost:9090/oauth/token
+      grant-type: password
+      scope: service
+    resource:
+      user-info-uri: http://localhost:3000/me
